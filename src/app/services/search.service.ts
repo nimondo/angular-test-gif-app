@@ -8,19 +8,33 @@ import { environment } from '../../environments/environment';
 export class SearchService {
   url : string = environment.apiUrl;
   constructor(private httpClient: HttpClient) { }
-  getSearcheResult(term:String){
+  getSearch(term:String) {
     this.httpClient
     .get<any>(`${this.url}${term}&limit=25&offset=0&rating=g&lang=en`)
     .subscribe(
       (response) => {
         console.log(response);
-          // this.typeId = response;
           return response;
       },
       (error) => {
         console.log('Erreur ! : ' + error.message);
-        return error.message;
       }
     ); 
   }
+  getSearchResult(term:String) {
+    return new Promise(
+      (resolve, reject) => {
+        const promise = this.httpClient.get(`${this.url}${term}&limit=25&offset=0&rating=g&lang=en`).toPromise();
+    promise.then(
+          (data) => {
+            resolve(data);
+          },
+          (error) => {
+            reject(error);
+          }
+        );
+      }
+    );
+  }
+ 
 }

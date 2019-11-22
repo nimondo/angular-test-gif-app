@@ -11,7 +11,10 @@ import { SearchService } from '../services/search.service';
 export class SearchFieldComponent implements OnInit {
     name = 'Search Field';
     searchForm: FormGroup;
-    constructor(private formBuilder: FormBuilder,) {
+    constructor(
+        private formBuilder: FormBuilder,
+        private searchService: SearchService
+        ) {
     }
 
     ngOnInit() {
@@ -25,5 +28,8 @@ export class SearchFieldComponent implements OnInit {
     onSubmit() {
         const searchTerm = this.searchForm.get('search').value;
         console.log(searchTerm);
-    }
+        this.searchService.getSearchResult(searchTerm).then((data)=>{
+            console.log(data);
+        })
+    }   
 }

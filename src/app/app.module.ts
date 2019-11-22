@@ -10,7 +10,7 @@ import { SearchFieldComponent } from './search-field/search-field.component';
 import { ResultsListComponent } from './results-list/results-list.component';
 
 const appRoutes: Routes = [
-  { path: '', component: SearchFieldComponent },
+  { path: '', component: ResultsListComponent  },
   { path: 'result', component: ResultsListComponent },
   { path: '**', redirectTo: '' },
 ];

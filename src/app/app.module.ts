@@ -1,12 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule,Routes,CanActivate} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchFieldComponent } from './search-field/search-field.component';
 import { ResultsListComponent } from './results-list/results-list.component';
 
+const appRoutes: Routes = [
+  { path: '', component: SearchFieldComponent },
+  { path: 'result', component: ResultsListComponent },
+  { path: '**', redirectTo: '' },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +24,8 @@ import { ResultsListComponent } from './results-list/results-list.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
     AppRoutingModule
   ],
   providers: [],

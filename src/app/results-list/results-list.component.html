@@ -1,4 +1,6 @@
 <div>
     <!-- Implement result list here -->
-    Results List
+    <ul>
+        <li *ngFor="let result of results"><a routerLink="/product/{{product.id}}" routerLinkActive="active">{{product.albumName}}</a></li>
+      </ul>
 </div>

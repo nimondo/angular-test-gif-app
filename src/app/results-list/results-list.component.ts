@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../services/search.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-results-list',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results-list.component.css']
 })
 export class ResultsListComponent implements OnInit {
-
-  constructor() { }
+  resultsSubscription: Subscription;
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
   }

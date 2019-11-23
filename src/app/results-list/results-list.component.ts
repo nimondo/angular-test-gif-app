@@ -18,7 +18,6 @@ export class ResultsListComponent implements OnInit {
       (results: any[]) => {
         this.res = results;
         this.results = this.res.data;
-        console.log(this.results)
       }
     );
     this.searchService.emitResult();

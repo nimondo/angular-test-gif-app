@@ -1,7 +1,7 @@
 <div>
     <!-- Implement result list here -->
     <ul  class="list-group">
-        <p *ngIf="results.length>0">Results</p>
-        <li class="list-group-item" *ngFor="let result of results; let i = index"><a routerLink="{{result.id}}" routerLinkActive="active">{{i+1}}.{{result.url}}</a></li>
+        <p *ngIf="results?.length>0">Results</p>
+        <li class="list-group-item" *ngFor="let result of results; let i = index"><a routerLink="/detail/{{result.id}}" routerLinkActive="active">{{i+1}}.{{result.url}}</a></li>
       </ul>
 </div>

@@ -30,7 +30,6 @@ export class ResultDetailComponent implements OnInit {
         this.results = this.res.data;
         if(this.results){
           this.res = this.results.filter((e)=>e.id==id);
-          console.log(this.res[0].url);
           this.title= this.res[0].title;
           this.id = this.res[0].id;
           this.url = this.res[0].url;
@@ -41,7 +40,5 @@ export class ResultDetailComponent implements OnInit {
     this.searchService.emitResult();
   }
 
-  onBack() {
-    this.router.navigate(['/']);
-  }
+
 }

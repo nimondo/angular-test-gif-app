@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 export class SearchService {
   url : string = environment.apiUrl;
   resultSubject = new Subject<any[]>();
-  result=[];
+  result;
   constructor(private httpClient: HttpClient) { }
   emitResult() {
     this.resultSubject.next(this.result);

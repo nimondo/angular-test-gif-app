@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SearchService } from '../services/search.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-search-field',
@@ -27,9 +28,7 @@ export class SearchFieldComponent implements OnInit {
       }
     onSubmit() {
         const searchTerm = this.searchForm.get('search').value;
-        console.log(searchTerm);
-        this.searchService.getSearchResult(searchTerm).then((data)=>{
-            console.log(data);
-        })
+        // console.log(searchTerm);
+        this.searchService.getSearch(searchTerm);
     }   
 }

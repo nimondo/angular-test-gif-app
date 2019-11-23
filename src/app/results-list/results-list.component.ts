@@ -9,9 +9,19 @@ import { Subscription } from 'rxjs';
 })
 export class ResultsListComponent implements OnInit {
   resultsSubscription: Subscription;
+  results=[];
+  res;
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
+    this.resultsSubscription = this.searchService.resultSubject.subscribe(
+      (results: any[]) => {
+        this.res = results;
+        this.results = this.res.data;
+        console.log(this.results)
+      }
+    );
+    this.searchService.emitResult();
   }
 
 }
